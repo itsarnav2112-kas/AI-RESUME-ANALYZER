@@ -1,0 +1,658 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="AI Resume Analyzer - Analyze your resume and improve ATS compatibility.">
+
+    <title>AI Resume Analyzer</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            <span>AI</span> Resume Analyzer
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#analyzer">Analyzer</a>
+            <a href="#features">Features</a>
+        </nav>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="badge">
+                ✨ AI POWERED RESUME ANALYZER
+            </div>
+
+            <h1>
+                Make Your Resume
+                <span>Stand Out.</span>
+            </h1>
+
+            <p>
+                Analyze your resume, check ATS compatibility,
+                discover missing skills and get useful
+                recommendations to improve your resume.
+            </p>
+
+            <a href="#analyzer" class="btn">
+                Analyze My Resume →
+            </a>
+
+        </div>
+
+
+        <div class="hero-card">
+
+            <div class="resume-icon">
+                📄
+            </div>
+
+            <div class="score-preview">
+                <strong>92%</strong>
+                <span>ATS Score</span>
+            </div>
+
+            <h3>Resume Analysis</h3>
+
+            <p>
+                Smart resume insights
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ANALYZER ================= -->
+
+    <section class="analyzer-section" id="analyzer">
+
+        <div class="section-title">
+
+            <span>RESUME ANALYZER</span>
+
+            <h2>
+                Analyze Your Resume
+            </h2>
+
+            <p>
+                Upload your resume or paste your resume
+                content below.
+            </p>
+
+        </div>
+
+
+        <div class="analyzer-container">
+
+
+            <!-- LEFT SIDE -->
+
+            <div class="analyzer-box">
+
+                <h3>
+                    📄 Upload Resume
+                </h3>
+
+                <p class="description">
+                    Upload a TXT file or paste your resume text.
+                </p>
+
+
+                <!-- FILE INPUT -->
+
+                <div class="upload-area">
+
+                    <div class="upload-icon">
+                        📂
+                    </div>
+
+                    <h4>
+                        Select Your Resume
+                    </h4>
+
+                    <p>
+                        TXT file supported
+                    </p>
+
+                    <input
+                        type="file"
+                        id="resumeFile"
+                        accept=".txt"
+                    >
+
+                    <label
+                        for="resumeFile"
+                        class="upload-button"
+                    >
+                        Choose File
+                    </label>
+
+                    <p id="fileName">
+                        No file selected
+                    </p>
+
+                </div>
+
+
+                <!-- RESUME TEXT -->
+
+                <label
+                    for="resumeText"
+                    class="input-label"
+                >
+                    Resume Text
+                </label>
+
+                <textarea
+                    id="resumeText"
+                    placeholder="Paste your complete resume here...
+
+Example:
+
+John Doe
+john@example.com
+
+Skills:
+HTML, CSS, JavaScript, Python
+
+Education:
+B.Tech Computer Science
+
+Projects:
+AI Resume Analyzer
+
+Experience:
+Web Development Intern..."
+                ></textarea>
+
+
+                <!-- JOB DESCRIPTION -->
+
+                <label
+                    for="jobDescription"
+                    class="input-label"
+                >
+                    Job Description
+                    <small>(Optional)</small>
+                </label>
+
+                <textarea
+                    id="jobDescription"
+                    placeholder="Paste the job description here...
+
+Example:
+
+We are looking for a frontend developer
+with experience in HTML, CSS, JavaScript,
+React and Git..."
+                ></textarea>
+
+
+                <!-- ANALYZE BUTTON -->
+
+                <button
+                    id="analyzeBtn"
+                    class="btn analyze-button"
+                    type="button"
+                >
+                    🔍 Analyze Resume
+                </button>
+
+
+                <p id="status"></p>
+
+            </div>
+
+
+
+            <!-- RIGHT SIDE -->
+
+            <div class="info-box">
+
+                <h3>
+                    What We Analyze
+                </h3>
+
+
+                <div class="info-card">
+
+                    <div class="info-icon">
+                        📊
+                    </div>
+
+                    <div>
+                        <h4>ATS Score</h4>
+
+                        <p>
+                            Get an estimated ATS compatibility
+                            score from 0 to 100.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <div class="info-icon">
+                        🧠
+                    </div>
+
+                    <div>
+                        <h4>Skills Detection</h4>
+
+                        <p>
+                            Detect technical and soft skills
+                            from your resume.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <div class="info-icon">
+                        🎯
+                    </div>
+
+                    <div>
+                        <h4>Job Matching</h4>
+
+                        <p>
+                            Compare your resume with a
+                            target job description.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <div class="info-icon">
+                        💡
+                    </div>
+
+                    <div>
+                        <h4>Recommendations</h4>
+
+                        <p>
+                            Get suggestions to improve
+                            your resume.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= RESULTS ================= -->
+
+    <section
+        class="results-section hidden"
+        id="results"
+    >
+
+        <div class="section-title">
+
+            <span>ANALYSIS REPORT</span>
+
+            <h2>
+                Your Resume Results
+            </h2>
+
+            <p>
+                Here is your resume analysis.
+            </p>
+
+        </div>
+
+
+        <!-- SCORE -->
+
+        <div class="results-grid">
+
+
+            <div class="result-card score-card">
+
+                <h3>
+                    ATS Score
+                </h3>
+
+                <div
+                    class="score-circle"
+                    id="scoreCircle"
+                >
+
+                    <span id="score">
+                        0%
+                    </span>
+
+                </div>
+
+                <h3 id="scoreLabel">
+                    Waiting for analysis
+                </h3>
+
+                <p id="scoreSummary">
+                    Analyze your resume to see your score.
+                </p>
+
+            </div>
+
+
+            <!-- STATISTICS -->
+
+            <div class="result-card">
+
+                <h3>
+                    📊 Resume Statistics
+                </h3>
+
+
+                <div class="stat-row">
+
+                    <span>
+                        Skills Detected
+                    </span>
+
+                    <strong id="skillCount">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="stat-row">
+
+                    <span>
+                        Keyword Match
+                    </span>
+
+                    <strong id="keywordScore">
+                        0%
+                    </strong>
+
+                </div>
+
+
+                <div class="stat-row">
+
+                    <span>
+                        Structure Score
+                    </span>
+
+                    <strong id="structureScore">
+                        0%
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SKILLS + KEYWORDS -->
+
+        <div class="results-grid">
+
+
+            <div class="result-card">
+
+                <h3>
+                    💻 Detected Skills
+                </h3>
+
+                <div
+                    id="skills"
+                    class="chips"
+                >
+
+                    <p>
+                        No skills detected yet.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="result-card">
+
+                <h3>
+                    🔎 Missing Keywords
+                </h3>
+
+                <div
+                    id="missingKeywords"
+                    class="chips"
+                >
+
+                    <p>
+                        No keywords yet.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- STRENGTHS + RECOMMENDATIONS -->
+
+        <div class="results-grid">
+
+
+            <div class="result-card">
+
+                <h3>
+                    ✅ Strengths
+                </h3>
+
+                <ul id="strengths">
+
+                    <li>
+                        Analyze your resume first.
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="result-card">
+
+                <h3>
+                    💡 Recommendations
+                </h3>
+
+                <ul id="recommendations">
+
+                    <li>
+                        Analyze your resume to get
+                        recommendations.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <!-- RESET -->
+
+        <button
+            id="resetBtn"
+            class="btn reset-button"
+            type="button"
+        >
+            🔄 Analyze Another Resume
+        </button>
+
+    </section>
+
+
+
+    <!-- ================= FEATURES ================= -->
+
+    <section
+        class="features-section"
+        id="features"
+    >
+
+        <div class="section-title">
+
+            <span>FEATURES</span>
+
+            <h2>
+                Powerful Resume Tools
+            </h2>
+
+            <p>
+                Everything you need to improve your resume.
+            </p>
+
+        </div>
+
+
+        <div class="feature-grid">
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    📊
+                </div>
+
+                <h3>
+                    ATS Score
+                </h3>
+
+                <p>
+                    Get an estimated ATS compatibility
+                    score for your resume.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🧠
+                </div>
+
+                <h3>
+                    Skill Detection
+                </h3>
+
+                <p>
+                    Automatically identify skills mentioned
+                    in your resume.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🎯
+                </div>
+
+                <h3>
+                    Job Matching
+                </h3>
+
+                <p>
+                    Compare your resume with the
+                    target job description.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    💡
+                </div>
+
+                <h3>
+                    Smart Suggestions
+                </h3>
+
+                <p>
+                    Get practical suggestions to improve
+                    your resume.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+            🚀 ResumeAI
+        </div>
+
+        <p>
+            Smart Resume Analysis for Your Career.
+        </p>
+
+        <p class="copyright">
+            © 2026 ResumeAI. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+```
